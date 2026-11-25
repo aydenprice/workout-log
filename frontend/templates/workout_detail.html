@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>{{ workout.exercise }}</h1>
+
+<ul>
+    <li>Date: {{ workout.date }}</li>
+    <li>Sets: {{ workout.sets }}</li>
+    <li>Reps: {{ workout.reps }}</li>
+    <li>Weight: {{ workout.weight }}</li>
+</ul>
+
+<a href="{{ url_for('index') }}">Back to all workouts</a>
+{% endblock %}
