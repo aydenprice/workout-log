@@ -1,14 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>{{ workout.exercise }}</h1>
+<div class="detail-card">
+    <h2>{{ workout.exercise }}</h2>
+    <p class="subtitle">{{ workout.date }}</p>
 
-<ul>
-    <li>Date: {{ workout.date }}</li>
-    <li>Sets: {{ workout.sets }}</li>
-    <li>Reps: {{ workout.reps }}</li>
-    <li>Weight: {{ workout.weight }}</li>
-</ul>
+    <div class="stats">
+        <div class="stat">
+            <span class="stat-value">{{ workout.sets }}</span>
+            <span class="stat-label">Sets</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">{{ workout.reps }}</span>
+            <span class="stat-label">Reps</span>
+        </div>
+        <div class="stat">
+            <span class="stat-value">{{ workout.weight }}</span>
+            <span class="stat-label">Weight</span>
+        </div>
+    </div>
 
-<a href="{{ url_for('index') }}">Back to all workouts</a>
+    <div class="form-actions">
+        <a class="link-button back-link" href="{{ url_for('index') }}">Back</a>
+        <a class="link-button edit-link" href="{{ url_for('edit_workout', workout_id=workout.id) }}">Edit</a>
+    </div>
+</div>
 {% endblock %}
